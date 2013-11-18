@@ -1,0 +1,22 @@
+<div ng-switch on="properties['cmis:objectTypeId']">
+    <div ng-switch-when="cmis:folder">
+        <h4><a href="" ng-click="click()">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square-o fa-stack-2x"></i>
+          <i class="fa fa-folder-open fa-stack-1x"></i>
+        </span><span>{{properties['cmis:name']}}</span></a></h4>
+    </div>
+    <div ng-switch-when="F:st:site">
+        <h4><a href="" ng-click="click()">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square-o fa-stack-2x"></i>
+          <i class="fa fa-folder-open fa-stack-1x"></i>
+        </span><span>{{properties['cmis:name']}}</span></a></h4>
+    </div>
+    <div ng-switch-when="cmis:document">
+        <h4><a href="http://localhost:8080/alfresco/api/-default-/public/cmis/versions/1.1/browser/root?objectId={{properties['cmis:objectId']}}&cmisselector=content&download=attachment"><i class="fa fa-file fa-2x"></i> {{properties['cmis:name']}}</a></h4>
+    </div>
+    <div ng-switch-default>
+        <h4>{{properties['cmis:name']}}</h4>
+    </div>    
+</div>
