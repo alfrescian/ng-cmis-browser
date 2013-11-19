@@ -11,7 +11,7 @@ angular.module('alfrescianCmisBrowserApp')
         };
 
         $scope.openFolder = function (path, name) {
-            cmisService.getDocuments(path).then(function (response) {
+            cmisService.getChildren(path).then(function (response) {
                 $scope.nodes = response.data.objects;
                 $log.log($scope.nodes);
                 $scope.parents.push({
@@ -40,4 +40,13 @@ angular.module('alfrescianCmisBrowserApp')
             },
             templateUrl: '/partials/cmisObject.html'
         };
+    }).filter('downloadUrl', function (cmisService) {
+        return function(objectId, asAttachment) {
+            var baseUrl = cmisService.getBaseUrl();
+            var downloadUrl = baseUrl + 'root?objectId='+ objectId +'&cmisselector=content';
+            if (asAttachment){
+                downloadUrl += '&download=attachment';
+            }
+            return downloadUrl;
+        }
     });
