@@ -20,11 +20,22 @@ In a nutshell:
 
 Getting Started
 --------
-* Install NodeJS
-* git clone
-```
- npm install -g grunt-cli
- npm install -g bower
- bower install
- grunt server
-```
+0. Install [Node.js](http://nodejs.org/) and NPM (should come with)
+
+1. Install global dependencies `grunt-cli`, `bower`, and `karma`:
+
+    ```bash
+    $ npm install -g karma grunt-cli bower
+    ```
+
+2. Install local dependencies:
+
+    ```bash
+    $ npm install
+    $ bower install
+    ```
+3. start local server:
+
+    ```bash
+    $ grunt server
+    ```    
